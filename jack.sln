@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "jack", "jack\jack.fsproj", "{2B581310-E7EB-4AB9-9EA1-06992CD8433D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2B581310-E7EB-4AB9-9EA1-06992CD8433D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B581310-E7EB-4AB9-9EA1-06992CD8433D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B581310-E7EB-4AB9-9EA1-06992CD8433D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B581310-E7EB-4AB9-9EA1-06992CD8433D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = jack\jack.fsproj
+		description = jack, the beanstalkd client
+		version = 1.0
+	EndGlobalSection
+EndGlobal

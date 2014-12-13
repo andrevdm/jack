@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>jack</id>
+    <version>1.0.1</version>
+    <authors>David Ellis</authors>
+    <owners>David Ellis</owners>
+    <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>http://www.github.com/davidkellis/jack</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <summary>
+      jack is a beanstalkd (http://kr.github.io/beanstalkd/) client written in F#.
+    </summary>
+    <description>
+      jack is a beanstalkd (http://kr.github.io/beanstalkd/) client written in F#.
+
+
+      Install:
+
+      nuget install jack
+
+
+      Usage:
+
+      open jack
+      let client = Connection.parseAddress "localhost:11300" |> Client.connect
+      client.useTube "testTube" |> ignore
+      client.put 1000 0 30 "my message" |> ignore  // priority=1000, delay=0, ttr=30 seconds
+      client.watch "testTube" |> ignore
+      let result = client.reserveWithTimeout 5
+      match result with
+      | Success (jobId, payload) ->
+        printfn "jobId=%i  payload=%s" jobId payload
+        client.delete jobId |> ignore
+      | Failure msg -> failwith msg
+    </description>
+    <releaseNotes>Initial release.</releaseNotes>
+    <copyright>Copyright 2014 David Ellis</copyright>
+    <tags>beanstalkd beanstalk message queue</tags>
+    <dependencies>
+      <dependency id="FParsec" version="1.0.1" />
+      <dependency id="FsUnit" version="1.2.1.0" />
+      <dependency id="FsYaml" version="1.1.3.0" />
+      <dependency id="NUnit" version="2.6.2" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="jack/bin/Release/jack.dll" target="lib/net45" />
+  </files>
+</package>

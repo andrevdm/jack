@@ -1,0 +1,21 @@
+jack is a beanstalkd (http://kr.github.io/beanstalkd/) client written in F#.
+
+
+Install:
+
+nuget install jack
+
+
+Usage:
+
+open jack
+let client = Connection.parseAddress "localhost:11300" |> Client.connect
+client.useTube "testTube" |> ignore
+client.put 1000 0 30 "my message" |> ignore  // priority=1000, delay=0, ttr=30 seconds
+client.watch "testTube" |> ignore
+let result = client.reserveWithTimeout 5
+match result with
+| Success (jobId, payload) ->
+  printfn "jobId=%i  payload=%s" jobId payload
+  client.delete jobId |> ignore
+| Failure msg -> failwith msg
