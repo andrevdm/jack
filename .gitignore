@@ -1,3 +1,5 @@
 jack/bin
 jack/obj
 **/*.nupkg
+jack/packages
+jack/.paket

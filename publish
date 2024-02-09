@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-nuget pack jack.nuspec 
-nuget push jack.*.nupkg 
